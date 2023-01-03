@@ -6,7 +6,7 @@
 /*   By: itaouil <itaouil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/30 18:29:47 by itaouil           #+#    #+#             */
-/*   Updated: 2022/12/30 18:55:47 by itaouil          ###   ########.fr       */
+/*   Updated: 2022/12/30 19:01:23 by itaouil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,13 +37,13 @@ Fixed &	Fixed::operator=( Fixed const &newValue )
 	return (*this);
 }
 
-int		Fixed::getRawBits( void )
+int			Fixed::getRawBits( void ) const
 {
 	std::cout << "getRawBits member function called." << std::endl;
 	return (this->_value);
 }
 
-void	Fixed::setRawBits( int raw )
+void		Fixed::setRawBits( int raw )
 {
 	this->_value = raw;
 }

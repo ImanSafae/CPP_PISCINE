@@ -10,7 +10,7 @@ public:
 
 	Fixed &		operator=( Fixed const &newValue );
 
-	int			getRawBits( void );
+	int			getRawBits( void ) const;
 	void		setRawBits( int const raw );
 
 private:
