@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
@@ -6,40 +5,36 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: itaouil <itaouil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/30 18:57:56 by itaouil           #+#    #+#             */
-/*   Updated: 2022/12/30 18:59:07 by itaouil          ###   ########.fr       */
+/*   Created: 2023/01/03 20:04:43 by itaouil           #+#    #+#             */
+/*   Updated: 2023/01/03 23:20:47 by itaouil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
+#include "Point.hpp"
+
+A                          B
+         M
+AM = k * AB
+0 < k < 1
 
 int	main()
 {
-	Fixed a;
-	Fixed b( a );
-	Fixed c;
+	// Point	A(0.0, 0.0);
+	// Point	B(10.0, 20.0);
+	// Point	C(20.0, 0.0);
+	// Point	M(10.0, 5.0);
+	Point	A(0.0, 0.0);
+	Point	B(1.0, 2.0);
+	Point	C(2.0, 0.0);
+	Point	M(0.0, 0.5);
 
-	c = b;
-
-	std::cout << a.getRawBits() << std::endl;
-	std::cout << b.getRawBits() << std::endl;
-	std::cout << c.getRawBits() << std::endl;
-	return 0;
+	if ()
+	{
+		
+	}
+	if (bsp(A, B, C, M) == true)
+		std::cout << "Point M is inside the triangle." << std::endl;
+	else
+		std::cout << "Point M is outside the triangle." << std::endl;
 }
-=======
-#include "Fixed.hpp"
-
-int main( void ) 
-{
-    Fixed a;
-    Fixed b( a );
-    Fixed c;
-
-    c = b;
-
-    std::cout << a.getRawBits() << std::endl;
-    std::cout << b.getRawBits() << std::endl;
-    std::cout << c.getRawBits() << std::endl;
-    return 0;
-}
->>>>>>> d34c7e0e1fc3e952265af8250d673c299b085063
