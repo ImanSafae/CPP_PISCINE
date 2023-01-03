@@ -1,13 +1,13 @@
 NAME = Fixed
 CC = c++
-FLAGS = -Wall -Wextra -Werror -std=c++98 
+FLAGS = -Wall -Wextra -Werror
 
-SRCS =	main.cpp Fixed.cpp
+SRCS = 	Fixed.cpp main.cpp
 
 all: $(NAME)
 
 $(NAME):
-	$(CC) $(FLAGS) -o $(NAME) $(SRCS) 
+	$(CC) $(FLAGS) -o $(NAME) $(SRCS)
 
 clean:
 	rm -f *.o

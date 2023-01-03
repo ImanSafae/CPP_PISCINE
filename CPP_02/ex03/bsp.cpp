@@ -1,35 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Fixed.hpp                                          :+:      :+:    :+:   */
+/*   bsp.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: itaouil <itaouil@student.42nice.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/03 01:15:44 by itaouil           #+#    #+#             */
-/*   Updated: 2023/01/03 01:16:12 by itaouil          ###   ########.fr       */
+/*   Created: 2023/01/03 01:42:12 by itaouil           #+#    #+#             */
+/*   Updated: 2023/01/03 02:12:32 by itaouil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FIXED_HPP
-# define FIXED_HPP
-# include <iostream>
+#include "Fixed.hpp"
+#include "Point.hpp"
 
-class Fixed
+float   area( Point const a, Point const b, Point const c )
 {
+    
+}
 
-public:
-	Fixed( void );
-	~Fixed( void );
-	Fixed( Fixed const &src );
-
-	Fixed &		operator=( Fixed const &newValue );
-
-	int			getRawBits( void ) const;
-	void		setRawBits( int const raw );
-
-private:
-	int					_value;
-	static const int	_precision = 8;
-};
-
-#endif
+bool bsp( Point const a, Point const b, Point const c, Point const point)
+{
+    float   triangle_area = area(a, b, c);    
+}

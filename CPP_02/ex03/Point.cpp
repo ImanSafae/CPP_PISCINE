@@ -1,57 +1,62 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Fixed.cpp                                          :+:      :+:    :+:   */
+/*   Point.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: itaouil <itaouil@student.42nice.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/30 18:29:47 by itaouil           #+#    #+#             */
-/*   Updated: 2022/12/31 23:49:32 by itaouil          ###   ########.fr       */
+/*   Created: 2023/01/03 01:14:05 by itaouil           #+#    #+#             */
+/*   Updated: 2023/01/03 01:41:36 by itaouil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Fixed.hpp"
+#include "Point.hpp"
 
 // ************************************************************************** //
 //                          Constructor & Destructor                          //
 // ************************************************************************** //
 
-Fixed::Fixed( void )
+Point::Point( void ) : _x(0), _y(0)
 {
-	std::cout << "Default constructor called." << std::endl;
-	this->setRawBits(0);
+    std::cout << "Default constructor called." << std::endl;
 }
 
-Fixed::~Fixed( void )
+Point::~Point( void )
 {
-	std::cout << "Destructor called." << std::endl;
+    std::cout << "Destructor called." << std::endl;
 }
 
-Fixed::Fixed( Fixed const &src )
+Point::Point( float const x, float const y ) : _x(x), _y(y)
 {
-	std::cout << "Copy constructor called." << std::endl;
-	*this = src;
-	return ;
+    std::cout << "Float constructor called." << std::endl;
 }
 
-Fixed &	Fixed::operator=( Fixed const &newValue )
+Point::Point( Point const &src )
 {
-	std::cout << "Copy assignment operator called." << std::endl;
-	this->_value = newValue.getRawBits();
-	return (*this);
+    std::cout << "Copy constructor called." << std::endl;
+    *this = src;
 }
 
 // ************************************************************************** //
 //                                 Accessors                                  //
 // ************************************************************************** //
 
-int		Fixed::getRawBits( void ) const
+Fixed   Point::getX( void ) const
 {
-	std::cout << "getRawBits member function called." << std::endl;
-	return (this->_value);
+    return (this->_x);
 }
 
-void	Fixed::setRawBits( int raw )
+Fixed   Point::getY( void ) const
 {
-	this->_value = raw;
+    return (this->_y);
+}
+
+// ************************************************************************** //
+//                             Operator overloads                             //
+// ************************************************************************** //
+
+Point   &Point::operator=( Point const &to_assign )
+{
+    *this = to_assign;
+    return (*this);
 }
