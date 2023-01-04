@@ -6,14 +6,19 @@
 /*   By: itaouil <itaouil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 01:42:12 by itaouil           #+#    #+#             */
-/*   Updated: 2023/01/03 22:46:20 by itaouil          ###   ########.fr       */
+/*   Updated: 2023/01/04 05:09:22 by itaouil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Point.hpp"
 #include <stdlib.h>
 
-
+Fixed	abs_fixed( Fixed number )
+{
+	if (number < 0)
+		return (number * (-1));
+	return (number);
+}
 
 Fixed	area( Point const a, Point const b, Point const c )
 {
@@ -28,7 +33,7 @@ Fixed	area( Point const a, Point const b, Point const c )
 	Fixed	two(2.0f);
 
 	area = (((x1 * (y2 - y3)) + (x2 * (y3 - y1)) + (x3 * (y1 - y2))) / two);
-	return (area);
+	return (abs_fixed(area));
 }
 
 bool	bsp( Point const a, Point const b, Point const c, Point const point)
@@ -39,11 +44,15 @@ bool	bsp( Point const a, Point const b, Point const c, Point const point)
 	Fixed	third_third = area(c, point, a);
 	Fixed	total = first_third + second_third + third_third;
 
+	if (first_third == 0 || second_third == 0 || third_third == 0)
+	{
+		std::cout << "Point M is on the outline of the triangle." << std::endl;
+		exit(EXIT_SUCCESS);
+		return (false);
+	}
 	total = total * total;
 	triangle_area = triangle_area * triangle_area;
 
-	// std::cout << "triangle area = " << triangle_area << std::endl;
-	// std::cout << "total = " << total << std::endl;
 	if (total == triangle_area)
 		return (true);
 	return (false);

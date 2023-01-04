@@ -3,14 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Fixed.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: itaouil <itaouil@student.42nice.fr>        +#+  +:+       +#+        */
+/*   By: itaouil <itaouil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/30 18:29:47 by itaouil           #+#    #+#             */
-<<<<<<< HEAD
-/*   Updated: 2022/12/30 19:01:23 by itaouil          ###   ########.fr       */
-=======
-/*   Updated: 2022/12/31 23:49:32 by itaouil          ###   ########.fr       */
->>>>>>> d34c7e0e1fc3e952265af8250d673c299b085063
+/*   Updated: 2023/01/04 05:24:27 by itaouil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,15 +41,11 @@ Fixed &	Fixed::operator=( Fixed const &newValue )
 	return (*this);
 }
 
-<<<<<<< HEAD
-int			Fixed::getRawBits( void ) const
-=======
 // ************************************************************************** //
 //                                 Accessors                                  //
 // ************************************************************************** //
 
 int		Fixed::getRawBits( void ) const
->>>>>>> d34c7e0e1fc3e952265af8250d673c299b085063
 {
 	std::cout << "getRawBits member function called." << std::endl;
 	return (this->_value);

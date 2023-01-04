@@ -1,12 +1,12 @@
 /* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
+/*																			  */
+/*						                                :::      ::::::::     */
 /*   Fixed.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: itaouil <itaouil@student.42nice.fr>        +#+  +:+       +#+        */
+/*   By: itaouil <itaouil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 01:15:34 by itaouil           #+#    #+#             */
-/*   Updated: 2023/01/03 01:15:35 by itaouil          ###   ########.fr       */
+/*   Updated: 2023/01/04 01:18:31 by itaouil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,43 +18,42 @@
 
 Fixed::Fixed( void )
 {
-    std::cout << "Default constructor called." << std::endl;
-    this->setRawBits(0);
+	std::cout << "Default constructor called." << std::endl;
+	this->setRawBits(0);
 }
 
 Fixed::Fixed( Fixed const &src )
 {
-    std::cout << "Copy constructor called." << std::endl;
-    *this = src;
+	std::cout << "Copy constructor called." << std::endl;
+	*this = src;
 }
 
 Fixed::~Fixed( void )
 {
-    std::cout << "Destructor called." << std::endl;
+	std::cout << "Destructor called." << std::endl;
 }
 
 Fixed::Fixed( int const number )
 {
-    std::cout << "Int constructor called." << std::endl;
-    this->_value = (number * pow(2, this->_precision));
-    // Convertir number en virgule fixe
+	std::cout << "Int constructor called." << std::endl;
+	// this->_value = (number * pow(2, this->_precision));
+	this->_value = number << this->_precision;
 }
 
 Fixed::Fixed( float const number )
 {
-    std::cout << "Float constructor called." << std::endl;
-    this->_value = roundf(number * pow(2, this->_precision));
-    // Convertir number en virgule fixe
+	std::cout << "Float constructor called." << std::endl;
+	this->_value = roundf(number * (1 << this->_precision));
 }
 
 // ************************************************************************** //
-//                           Operator overload                                //
+//						   Operator overload								  //
 // ************************************************************************** //
 
-std::ostream    &operator<<( std::ostream &output, Fixed const &number )
+std::ostream	&operator<<( std::ostream &output, Fixed const &number )
 {
-    output << number.toFloat();
-    return (output);
+	output << number.toFloat();
+	return (output);
 }
 
 Fixed &	Fixed::operator=( Fixed const &newValue )
@@ -65,7 +64,7 @@ Fixed &	Fixed::operator=( Fixed const &newValue )
 }
 
 // ************************************************************************** //
-//                                 Accessors                                  //
+//								 Accessors								      //
 // ************************************************************************** //
 
 int		Fixed::getRawBits( void ) const
@@ -79,21 +78,23 @@ void	Fixed::setRawBits( int raw )
 }
 
 // ************************************************************************** //
-//                                 Converters                                 //
+//								 Converters								      //
 // ************************************************************************** //
 
-float   Fixed::toFloat( void ) const
+float	Fixed::toFloat( void ) const
 {
-    float   floatVersion;
+	float	floatVersion;
 
-    floatVersion = (this->_value) * pow(2, this->_precision * (-1));
-    return (floatVersion);
+	// floatVersion = (this->_value) * pow(2, this->_precision * (-1));
+	floatVersion = ((float) this->_value) / (1 << (this->_precision));
+	return (floatVersion);
 }
 
-int     Fixed::toInt( void ) const
+int		Fixed::toInt( void ) const
 {
-    int   intVersion;
+	int	intVersion;
 
-    intVersion = (this->_value) * pow(2, this->_precision * (-1));
-    return (intVersion);
+	// intVersion = (this->_value) * pow(2, this->_precision * (-1));
+	intVersion = ((this->_value) >> (this->_precision));
+	return (intVersion);
 }
