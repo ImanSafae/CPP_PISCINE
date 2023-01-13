@@ -3,6 +3,9 @@
 
 # include <iostream>
 
+# define SCAVTRAP 1
+# define FRAGTRAP 2
+
 class ClapTrap
 {
 
@@ -24,6 +27,7 @@ public:
 	int			getHitPoints( void ) const;
 	int			getDamage( void ) const;
 
+	void		initStats( int category );
 	void		setName( std::string name );
 	void		setEnergy( unsigned int amount );
 	void		setHitPoints( unsigned int amount );

@@ -3,6 +3,7 @@
 
 # include <iostream>
 
+
 class ClapTrap
 {
 
@@ -24,6 +25,7 @@ public:
 	int			getHitPoints( void ) const;
 	int			getDamage( void ) const;
 
+	void		initStats( void );
 	void		setEnergy( unsigned int amount );
 	void		setHitPoints( unsigned int amount );
 	void		setDamage( unsigned int amount );

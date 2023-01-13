@@ -6,7 +6,7 @@
 /*   By: itaouil <itaouil@student.42nice.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/07 00:22:42 by itaouil           #+#    #+#             */
-/*   Updated: 2023/01/07 01:03:24 by itaouil          ###   ########.fr       */
+/*   Updated: 2023/01/13 22:46:59 by itaouil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,10 @@
 ScavTrap::ScavTrap( void )
 {
 	std::cout << "More specifically, a ScavTrap!" << std::endl;
-	this->setHitPoints(100);
-	this->setEnergy(50);
-	this->setDamage(20);
+	this->initStats(SCAVTRAP);
+	// this->setHitPoints(100);
+	// this->setEnergy(50);
+	// this->setDamage(20);
 }
 
 ScavTrap::~ScavTrap( void )
@@ -45,15 +46,20 @@ ScavTrap::ScavTrap( std::string name )
 {
 	std::cout << "More specifically, a ScavTrap named "  << name << " !" << std::endl;
 	this->setName(name);
-	this->setHitPoints(100);
-	this->setEnergy(50);
-	this->setDamage(20);
+	this->initStats(SCAVTRAP);
+	// this->setHitPoints(100);
+	// this->setEnergy(50);
+	// this->setDamage(20);
 }
 
 void	ScavTrap::guardGate( void )
 {
 	std::cout << "ScavTrap has entered gatekeeper mode." << std::endl;
 }
+
+// ************************************************************************** //
+//                                  Actions                                   //
+// ************************************************************************** //
 
 void	ScavTrap::attack( const std::string &target )
 {

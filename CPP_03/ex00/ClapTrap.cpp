@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ClapTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: itaouil <itaouil@student.42.fr>            +#+  +:+       +#+        */
+/*   By: itaouil <itaouil@student.42nice.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/04 22:53:58 by itaouil           #+#    #+#             */
-/*   Updated: 2023/01/05 01:42:02 by itaouil          ###   ########.fr       */
+/*   Updated: 2023/01/13 22:37:46 by itaouil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,10 @@
 ClapTrap::ClapTrap( void )
 {
 	std::cout << "New ClapTrap spawned." << std::endl;
-	this->setDamage(0);
-	this->setEnergy(10);
-	this->setHitPoints(10);
+	this->initStats();
+	// this->setDamage(0);
+	// this->setEnergy(10);
+	// this->setHitPoints(10);
 }
 
 ClapTrap::~ClapTrap( void )
@@ -32,9 +33,10 @@ ClapTrap::~ClapTrap( void )
 ClapTrap::ClapTrap( std::string name ) : _name(name)
 {
 	std::cout << "New ClapTrap named " << name << " just spawned." << std::endl;
-	this->setDamage(0);
-	this->setEnergy(10);
-	this->setHitPoints(10);
+	this->initStats();
+	// this->setDamage(0);
+	// this->setEnergy(10);
+	// this->setHitPoints(10);
 }
 
 ClapTrap::ClapTrap( ClapTrap const &src )
@@ -102,6 +104,13 @@ void		ClapTrap::setEnergy( unsigned int amount )
 void		ClapTrap::setHitPoints( unsigned int amount )
 {
 	this->_hitPoints = amount;
+}
+
+void		ClapTrap::initStats( void )
+{
+	this->setDamage(0);
+	this->setEnergy(10);
+	this->setHitPoints(10);
 }
 
 // ************************************************************************** //

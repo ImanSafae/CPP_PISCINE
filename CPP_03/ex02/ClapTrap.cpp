@@ -6,7 +6,7 @@
 /*   By: itaouil <itaouil@student.42nice.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/04 22:53:58 by itaouil           #+#    #+#             */
-/*   Updated: 2023/01/07 01:02:38 by itaouil          ###   ########.fr       */
+/*   Updated: 2023/01/13 22:44:39 by itaouil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,6 +101,28 @@ void		ClapTrap::setHitPoints( unsigned int amount )
 void		ClapTrap::setName( std::string name )
 {
 	this->_name = name;
+}
+
+void		ClapTrap::initStats( int category )
+{
+	if (category == SCAVTRAP)
+	{
+		this->setHitPoints(100);
+		this->setEnergy(50);
+		this->setDamage(20);
+	}
+	else if (category == FRAGTRAP)
+	{
+		this->setHitPoints(100);
+		this->setEnergy(100);
+		this->setDamage(30);
+	}
+	else
+	{
+		this->setDamage(0);
+		this->setEnergy(10);
+		this->setHitPoints(10);
+	}
 }
 
 // ************************************************************************** //

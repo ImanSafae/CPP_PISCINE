@@ -6,17 +6,12 @@
 class FragTrap : public ClapTrap
 {
 public:
-    FragTrap();
+    FragTrap( void );
+    FragTrap( std::string name );
+    FragTrap( FragTrap const &src );
     ~FragTrap();
+
+    void    highFivesGuys( void );
 };
-
-FragTrap::FragTrap(/* args */)
-{
-}
-
-FragTrap::~FragTrap()
-{
-}
-
 
 #endif

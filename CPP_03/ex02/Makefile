@@ -1,8 +1,8 @@
-NAME = ScavTrap
+NAME = FragTrap
 CC = c++
 FLAGS = -Wall -Wextra -Werror
 
-SRCS = ClapTrap.cpp main.cpp ScavTrap.cpp
+SRCS = ClapTrap.cpp FragTrap.cpp main.cpp ScavTrap.cpp
 all: $(NAME)
 
 $(NAME):
