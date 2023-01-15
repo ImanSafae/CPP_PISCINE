@@ -3,13 +3,13 @@
 
 # include "ScavTrap.hpp"
 
-class FragTrap : public ClapTrap
+class FragTrap : virtual public ClapTrap
 {
 public:
     FragTrap( void );
     FragTrap( std::string name );
     FragTrap( FragTrap const &src );
-    ~FragTrap();
+    ~FragTrap( void );
 
     FragTrap & operator=( FragTrap const &src );
 

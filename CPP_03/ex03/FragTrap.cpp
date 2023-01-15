@@ -6,7 +6,7 @@
 /*   By: itaouil <itaouil@student.42nice.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 21:20:08 by itaouil           #+#    #+#             */
-/*   Updated: 2023/01/15 21:20:32 by itaouil          ###   ########.fr       */
+/*   Updated: 2023/01/15 21:32:08 by itaouil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 
 FragTrap::FragTrap( void )
 {
-    std::cout << "Congratulations! Your ClapTrap is a FragTrap." << std::endl;
+    std::cout << "ClapTrap belongs to the category: FragTrap." << std::endl;
     this->initStats(FRAGTRAP);
 }
 
@@ -40,7 +40,7 @@ FragTrap::FragTrap( FragTrap const &src )
 
 FragTrap::~FragTrap( void )
 {
-    std::cout << "FragTrap's job here is done." << std::endl;
+    std::cout << "This FragTrap's job here is done." << std::endl;
 }
 
 // ************************************************************************** //
@@ -66,7 +66,7 @@ void    FragTrap::highFivesGuys( void )
 {
     std::string answer;
 
-    std::cout << "FragTrap asks: < Will you high five me ? uwu 👉👈 >" << std::endl;
+    std::cout << "FragTraps love high fives! Your bot asks: < Will you high five me ? uwu 👉👈 >" << std::endl;
     std::cin >> answer;
     str_lower(answer);
 

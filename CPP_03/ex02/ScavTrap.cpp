@@ -6,7 +6,7 @@
 /*   By: itaouil <itaouil@student.42nice.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/07 00:22:42 by itaouil           #+#    #+#             */
-/*   Updated: 2023/01/07 01:03:24 by itaouil          ###   ########.fr       */
+/*   Updated: 2023/01/14 20:28:12 by itaouil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,10 @@ ScavTrap::ScavTrap( std::string name )
 	this->setDamage(20);
 }
 
+// ************************************************************************** //
+//                                  Actions                                   //
+// ************************************************************************** //
+
 void	ScavTrap::guardGate( void )
 {
 	std::cout << "ScavTrap has entered gatekeeper mode." << std::endl;
@@ -59,4 +63,17 @@ void	ScavTrap::attack( const std::string &target )
 {
 	std::cout << target << " approached the gate too close and ScavTrap got mad. " << std::endl;
 	std::cout << target << " is attacked, taking " << this->_damage << " points of damage..." << std::endl;
+}
+
+// ************************************************************************** //
+//                           Operator overload                                //
+// ************************************************************************** //
+
+ScavTrap	& ScavTrap::operator=( ScavTrap const &src )
+{
+	this->_damage = src.getDamage();
+	this->_energyPoints = src.getEnergy();
+	this->_hitPoints = src.getHitPoints();
+	this->_name = src.getName();
+	return (*this);
 }

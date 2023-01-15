@@ -6,7 +6,7 @@
 /*   By: itaouil <itaouil@student.42nice.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/07 00:22:42 by itaouil           #+#    #+#             */
-/*   Updated: 2023/01/14 20:27:37 by itaouil          ###   ########.fr       */
+/*   Updated: 2023/01/15 21:29:01 by itaouil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,10 @@
 
 ScavTrap::ScavTrap( void )
 {
-	std::cout << "More specifically, a ScavTrap!" << std::endl;
-	this->initStats(SCAVTRAP);
-	// this->setHitPoints(100);
-	// this->setEnergy(50);
-	// this->setDamage(20);
+	std::cout << "ClapTrap belongs to the category : ScavTrap." << std::endl;
+	this->setHitPoints(100);
+	this->setEnergy(50);
+	this->setDamage(20);
 }
 
 ScavTrap::~ScavTrap( void )
@@ -46,15 +45,10 @@ ScavTrap::ScavTrap( std::string name )
 {
 	std::cout << "More specifically, a ScavTrap named "  << name << " !" << std::endl;
 	this->setName(name);
-	this->initStats(SCAVTRAP);
-	// this->setHitPoints(100);
-	// this->setEnergy(50);
-	// this->setDamage(20);
+	this->setHitPoints(100);
+	this->setEnergy(50);
+	this->setDamage(20);
 }
-
-// ************************************************************************** //
-//                                  Actions                                   //
-// ************************************************************************** //
 
 void	ScavTrap::guardGate( void )
 {
