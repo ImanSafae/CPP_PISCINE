@@ -5,7 +5,7 @@
 # include "ClapTrap.hpp"
 # include "ScavTrap.hpp"
 
-class   DiamondTrap : public ScavTrap, public FragTrap
+class	DiamondTrap : virtual public ScavTrap, virtual public FragTrap
 {
 
 public:
@@ -24,6 +24,7 @@ public:
 	void	setEnergy( void );
 	void	setDamage( void );
 
+	std::string	getName( void ) const;
 
 private:
 	std::string		_name;

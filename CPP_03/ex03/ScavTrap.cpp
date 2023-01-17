@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ScavTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: itaouil <itaouil@student.42nice.fr>        +#+  +:+       +#+        */
+/*   By: itaouil <itaouil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/07 00:22:42 by itaouil           #+#    #+#             */
-/*   Updated: 2023/01/15 21:29:01 by itaouil          ###   ########.fr       */
+/*   Updated: 2023/01/17 17:36:08 by itaouil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ void	ScavTrap::guardGate( void )
 
 void	ScavTrap::attack( const std::string &target )
 {
-	std::cout << target << " approached the gate too close and ScavTrap got mad. " << std::endl;
+	std::cout << target << " approached the gate too close and your robot got mad. " << std::endl;
 	std::cout << target << " is attacked, taking " << this->_damage << " points of damage..." << std::endl;
 }
 

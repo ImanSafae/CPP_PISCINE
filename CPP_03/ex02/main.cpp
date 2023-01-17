@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: itaouil <itaouil@student.42nice.fr>        +#+  +:+       +#+        */
+/*   By: itaouil <itaouil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/07 00:21:12 by itaouil           #+#    #+#             */
-/*   Updated: 2023/01/13 23:03:13 by itaouil          ###   ########.fr       */
+/*   Updated: 2023/01/17 17:21:56 by itaouil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,13 @@
 
 int main()
 {
-    FragTrap    Frag("Frag");
+	FragTrap	Frag("Frag");
 
-    std::cout << std::endl;
-    Frag.attack("You");
+	std::cout << std::endl;
+	Frag.attack("You");
 
-    std::cout << std::endl;
-    Frag.highFivesGuys();
+	std::cout << std::endl;
+	Frag.highFivesGuys();
 
-    std::cout << std::endl;
+	std::cout << std::endl;
 }

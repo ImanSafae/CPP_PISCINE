@@ -1,8 +1,10 @@
-NAME = DiamondTrap
+NAME = Animal
 CC = c++
 FLAGS = -Wall -Wextra -Werror -Wshadow -std=c++98
 
-SRCS = ClapTrap.cpp DiamondTrap.cpp FragTrap.cpp main.cpp ScavTrap.cpp
+SRCS = 	main.cpp \
+		Animals.cpp \
+		WrongAnimals.hpp
 all: $(NAME)
 
 $(NAME):

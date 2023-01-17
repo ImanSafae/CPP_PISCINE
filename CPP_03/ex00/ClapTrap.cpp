@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ClapTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: itaouil <itaouil@student.42nice.fr>        +#+  +:+       +#+        */
+/*   By: itaouil <itaouil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/04 22:53:58 by itaouil           #+#    #+#             */
-/*   Updated: 2023/01/13 22:37:46 by itaouil          ###   ########.fr       */
+/*   Updated: 2023/01/17 17:10:56 by itaouil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -136,7 +136,7 @@ void	ClapTrap::takeDamage( unsigned int amount )
 		std::cout << "Nameless ClapTrap";
 	else
 		std::cout << "ClapTrap " << this->_name;
-	std::cout << " is taking " << amount << "damage points!" << std::endl;
+	std::cout << " is taking " << amount << " damage point(s)!" << std::endl;
 	this->_hitPoints -= amount;
 	if (this->_hitPoints < 0)
 		this->_hitPoints = 0;
@@ -150,7 +150,7 @@ void	ClapTrap::beRepaired( unsigned int amount )
 			std::cout << "Nameless ClapTrap";
 		else
 			std::cout << "ClapTrap " << this->_name;
-		std::cout << " repairs itself and gains back " << amount << " hit points!" << std::endl;
+		std::cout << " repairs itself and gains back " << amount << " hit point(s)!" << std::endl;
 		this->_hitPoints += amount;
 		this->decreaseEnergy();
 	}

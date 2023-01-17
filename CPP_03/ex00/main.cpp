@@ -6,7 +6,7 @@
 /*   By: itaouil <itaouil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/05 01:04:11 by itaouil           #+#    #+#             */
-/*   Updated: 2023/01/05 01:44:27 by itaouil          ###   ########.fr       */
+/*   Updated: 2023/01/17 17:11:01 by itaouil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,11 @@ int	main()
 	std::cout << std::endl;
 	
 	MrGutsy.attack(PrimmSlim.getName());
-	std::cout << "ClapTrap " << PrimmSlim.getName() << " now has " << PrimmSlim.getHitPoints() << " hit points." << std::endl;
+	PrimmSlim.takeDamage(MrGutsy.getDamage());
+	std::cout << "ClapTrap " << PrimmSlim.getName() << " now has " << PrimmSlim.getHitPoints() << " hit point(s)." << std::endl;
 	
 	std::cout << std::endl;
 	PrimmSlim.beRepaired(1);
-	std::cout << "ClapTrap " << PrimmSlim.getName() << " now has " << PrimmSlim.getHitPoints() << " hit points." << std::endl;
+	std::cout << "ClapTrap " << PrimmSlim.getName() << " now has " << PrimmSlim.getHitPoints() << " hit point(s)." << std::endl;
 	std::cout << std::endl;
 }

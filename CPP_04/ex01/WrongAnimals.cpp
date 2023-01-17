@@ -1,4 +1,4 @@
-#include "WrongAnimal.hpp"
+#include "WrongAnimals.hpp"
 
 // **************************** WRONGANIMAL CLASS ***************************** //
 
@@ -7,25 +7,14 @@ WrongAnimal::WrongAnimal( void )
 	std::cout << "An WrongAnimal is born!" << std::endl;
 }
 
-WrongAnimal::WrongAnimal( std::string name )
-{
-	this->name = name;
-	std::cout << "An WrongAnimal named " << name << " is born!" << std::endl;
-}
-
 WrongAnimal::WrongAnimal( WrongAnimal const &src )
 {
-	this->name = src.getName();
+	this->type = src.getType();
 }
 
 WrongAnimal::~WrongAnimal( void )
 {
 	std::cout << "The WrongAnimal is leaving." << std::endl;
-}
-
-std::string	WrongAnimal::getName( void ) const
-{
-	return (this->name);
 }
 
 std::string	WrongAnimal::getType( void ) const
@@ -46,19 +35,10 @@ WrongCat::WrongCat( void )
 	this->type = "WrongCat";
 }
 
-WrongCat::WrongCat( std::string name )
-{
-	std::cout << "It's a Cat, but Wrong, and it's named " << name << "!" << std::endl;
-	this->name = name;
-	this->type = "WrongCat";
-}
-
 WrongCat::WrongCat( WrongCat const &src )
 {
 	std::cout << "Your other WrongCat now has a twin." << std::endl;
 	this->type = "WrongCat";
-	this->name = src.getName();
-
 }
 
 WrongCat::~WrongCat( void )

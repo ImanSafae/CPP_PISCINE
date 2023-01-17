@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   DiamondTrap.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: itaouil <itaouil@student.42nice.fr>        +#+  +:+       +#+        */
+/*   By: itaouil <itaouil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/15 16:31:36 by itaouil           #+#    #+#             */
-/*   Updated: 2023/01/15 21:31:59 by itaouil          ###   ########.fr       */
+/*   Updated: 2023/01/17 13:50:40 by itaouil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,6 +75,11 @@ void	DiamondTrap::setEnergy( void )
 void	DiamondTrap::setHitPoints( void )
 {
 	this->_hitPoints = this->FragTrap::getHitPoints();
+}
+
+std::string	DiamondTrap::getName( void ) const
+{
+	return (this->_name);
 }
 
 // ************************************************************************** //
