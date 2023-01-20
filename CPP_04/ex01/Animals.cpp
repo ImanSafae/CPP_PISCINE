@@ -27,6 +27,12 @@ void	Animal::makeSound( void ) const
 	std::cout << "[ANIMAL SOUNDS]" << std::endl;
 }
 
+Animal	&Animal::operator=( Animal const &src )
+{
+	this->type = src.getType();
+	return (*this);
+}
+
 // **************************** DOG CLASS ***************************** //
 
 Dog::Dog( void )
@@ -40,7 +46,7 @@ Dog::Dog( Dog const &src )
 {
 	std::cout << "Your other dog now has a twin." << std::endl;
 	this->type = "Dog";
-	this->_brain = src._brain;	
+	this->_brain = new Brain(src.getBrain());
 }
 
 Dog::~Dog( void )
@@ -54,6 +60,17 @@ void	Dog::makeSound( void ) const
 	std::cout << "Dog: <BARK! BARK!>" << std::endl;
 }
 
+Brain	&Dog::getBrain( void ) const
+{
+	return (*(this->_brain));
+}
+
+Dog	&Dog::operator=( Dog const &src )
+{
+	this->type = src.getType();
+	this->_brain = new Brain(src.getBrain());
+	return (*this);
+}
 
 // **************************** CAT CLASS ***************************** //
 
@@ -63,11 +80,12 @@ Cat::Cat( void )
 	this->type = "Cat";
 	this->_brain = new Brain();
 }
+
 Cat::Cat( Cat const &src )
 {
 	std::cout << "Your other Cat now has a twin." << std::endl;
 	this->type = "Cat";
-	this->_brain = src._brain;
+	this->_brain = new Brain(src.getBrain());
 }
 
 Cat::~Cat( void )
@@ -79,4 +97,16 @@ Cat::~Cat( void )
 void	Cat::makeSound( void ) const
 {
 	std::cout << "The kitty meows cutely." << std::endl;
+}
+
+Brain	&Cat::getBrain( void ) const
+{
+	return (*(this->_brain));
+}
+
+Cat	&Cat::operator=( Cat const &src )
+{
+	this->type = src.getType();
+	this->_brain = new Brain(src.getBrain());
+	return (*this);
 }

@@ -9,6 +9,11 @@ int main()
 	const AAnimal*		i = new Cat();
 	std::cout << std::endl;
 
+	// AAnimal		fake; // should give error at compilation
+
+	i->makeSound(); // Cat sound
+	j->makeSound(); // Dog sound
+
 	delete j; //should not create a leak
 	std::cout << std::endl;
 	delete i;

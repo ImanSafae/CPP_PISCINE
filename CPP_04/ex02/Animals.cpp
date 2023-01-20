@@ -30,7 +30,7 @@ Dog::Dog( Dog const &src )
 {
 	std::cout << "Your other dog now has a twin." << std::endl;
 	this->type = "Dog";
-	this->_brain = src._brain;	
+	this->_brain = new Brain(src.getBrain());
 }
 
 Dog::~Dog( void )
@@ -44,7 +44,19 @@ void	Dog::makeSound( void ) const
 	std::cout << "Dog: <BARK! BARK!>" << std::endl;
 }
 
-std::string	Dog::getType( void ) const
+Brain	&Dog::getBrain( void ) const
+{
+	return (*(this->_brain));
+}
+
+Dog	&Dog::operator=( Dog const &src )
+{
+	this->type = src.getType();
+	this->_brain = new Brain(src.getBrain());
+	return (*this);
+}
+
+std::string Dog::getType( void ) const
 {
 	return (this->type);
 }
@@ -57,11 +69,12 @@ Cat::Cat( void )
 	this->type = "Cat";
 	this->_brain = new Brain();
 }
+
 Cat::Cat( Cat const &src )
 {
 	std::cout << "Your other Cat now has a twin." << std::endl;
 	this->type = "Cat";
-	this->_brain = src._brain;
+	this->_brain = new Brain(src.getBrain());
 }
 
 Cat::~Cat( void )
@@ -75,7 +88,19 @@ void	Cat::makeSound( void ) const
 	std::cout << "The kitty meows cutely." << std::endl;
 }
 
-std::string	Cat::getType( void ) const
+Brain	&Cat::getBrain( void ) const
+{
+	return (*(this->_brain));
+}
+
+Cat	&Cat::operator=( Cat const &src )
+{
+	this->type = src.getType();
+	this->_brain = new Brain(src.getBrain());
+	return (*this);
+}
+
+std::string Cat::getType( void ) const
 {
 	return (this->type);
 }

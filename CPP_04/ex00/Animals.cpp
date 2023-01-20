@@ -19,25 +19,14 @@ Animal::Animal( void )
 	std::cout << "An animal is born!" << std::endl;
 }
 
-Animal::Animal( std::string name )
-{
-	this->name = name;
-	std::cout << "An animal named " << name << " is born!" << std::endl;
-}
-
 Animal::Animal( Animal const &src )
 {
-	this->name = src.getName();
+	this->type = src.getType();
 }
 
 Animal::~Animal( void )
 {
 	std::cout << "The animal is leaving." << std::endl;
-}
-
-std::string	Animal::getName( void ) const
-{
-	return (this->name);
 }
 
 std::string	Animal::getType( void ) const
@@ -58,18 +47,10 @@ Dog::Dog( void )
 	this->type = "Dog";
 }
 
-Dog::Dog( std::string name )
-{
-	std::cout << "It's a doggo named " << name << "!" << std::endl;
-	this->name = name;
-	this->type = "Dog";
-}
-
 Dog::Dog( Dog const &src )
 {
 	std::cout << "Your other dog now has a twin." << std::endl;
-	this->type = "Dog";
-	this->name = src.getName();
+	this->type = src.getType();
 
 }
 
@@ -92,18 +73,10 @@ Cat::Cat( void )
 	this->type = "Cat";
 }
 
-Cat::Cat( std::string name )
-{
-	std::cout << "It's a kitty named " << name << "!" << std::endl;
-	this->name = name;
-	this->type = "Cat";
-}
-
 Cat::Cat( Cat const &src )
 {
 	std::cout << "Your other Cat now has a twin." << std::endl;
-	this->type = "Cat";
-	this->name = src.getName();
+	this->type = src.getType();
 }
 
 Cat::~Cat( void )

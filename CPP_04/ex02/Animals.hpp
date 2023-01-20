@@ -31,9 +31,9 @@ public:
 
 	Dog &operator=( Dog const &src );
 
-	virtual std::string	getType( void ) const;
-
 	virtual void makeSound( void ) const;
+	Brain	&getBrain( void ) const;
+	virtual std::string	getType( void ) const;
 
 private:
 	Brain	*_brain;
@@ -48,9 +48,9 @@ public:
 
 	Cat &operator=( Cat const &src );
 
-	virtual std::string	getType( void ) const;
-
 	virtual void makeSound( void ) const;
+	Brain	&getBrain( void ) const;
+	virtual std::string	getType( void ) const;
 
 private:
 	Brain	*_brain;

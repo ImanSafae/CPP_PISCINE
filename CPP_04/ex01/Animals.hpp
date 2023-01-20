@@ -23,11 +23,12 @@ class Dog : public Animal
 public:
 	Dog( void );
 	Dog( Dog const &src );
-	~Dog( void );
+	virtual ~Dog( void );
 
 	Dog &operator=( Dog const &src );
 
 	void makeSound( void ) const;
+	Brain	&getBrain( void ) const;
 
 private:
 	Brain	*_brain;
@@ -38,11 +39,12 @@ class Cat : public Animal
 public:
 	Cat( void );
 	Cat( Cat const &src );
-	~Cat( void );
+	virtual ~Cat( void );
 
 	Cat &operator=( Cat const &src );
 
 	void makeSound( void ) const;
+	Brain	&getBrain( void ) const;
 
 private:
 	Brain	*_brain;

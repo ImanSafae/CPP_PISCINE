@@ -4,7 +4,7 @@ FLAGS = -Wall -Wextra -Werror -Wshadow -std=c++98
 
 SRCS = 	main.cpp \
 		Animals.cpp \
-		WrongAnimals.hpp
+		WrongAnimals.cpp
 all: $(NAME)
 
 $(NAME):
