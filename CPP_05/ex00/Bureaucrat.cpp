@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: itaouil <itaouil@student.42.fr>            +#+  +:+       +#+        */
+/*   By: itaouil <itaouil@student.42nice.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/20 20:59:39 by itaouil           #+#    #+#             */
-/*   Updated: 2023/01/20 21:34:26 by itaouil          ###   ########.fr       */
+/*   Updated: 2023/01/22 21:17:29 by itaouil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,14 +60,38 @@ void	Bureaucrat::setGrade( unsigned int grade )
 
 void	Bureaucrat::incrementGrade( void )
 {
-	(this->_grade)--;
-	// throw error if < 1;
+	try
+	{
+		if (this->_grade == 1)
+			throw std::string("Cannot raise grade above #1.");
+		(this->_grade)--;
+	}
+	catch(const std::string &s)
+	{
+		std::cerr << s << std::endl;
+	}
+	// catch(const std::exception& e)
+	// {
+	// 	std::cerr << e.what() << '\n';
+	// }
 }
 
 void	Bureaucrat::decrementGrade( void )
 {
-	(this->_grade)++;
-	// throw error if > 150;
+	try
+	{
+		if (this->_grade == 150)
+			throw std::string("Cannot lower grade below #150.");
+		(this->_grade)++;
+	}
+	catch(const std::string &s)
+	{
+		std::cerr << s << std::endl;
+	}
+	// catch()
+	// {
+	// 	std::cerr << e.what() << '\n';
+	// }
 }
 
 // ************************************************************************** //
