@@ -3,6 +3,7 @@ CC = c++
 FLAGS = -Wall -Wextra -Werror -Wshadow -std=c++98
 SRCS = 	main.cpp \
 		Bureaucrat.cpp \
+		Form.cpp \
 		GradeTooHighException.cpp \
 		GradeTooLowException.cpp
 

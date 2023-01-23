@@ -6,7 +6,7 @@
 /*   By: itaouil <itaouil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 16:48:28 by itaouil           #+#    #+#             */
-/*   Updated: 2023/01/23 17:40:49 by itaouil          ###   ########.fr       */
+/*   Updated: 2023/01/23 21:52:10 by itaouil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,11 +26,21 @@ Form::Form( std::string name, unsigned int execGrade, unsigned int signGrade ) :
 {
 	std::cout << "New form just popped on your desk." << std::endl;
 	std::cout << *this << std::endl;
+	try
+	{
+		if (execGrade > 150)
+			throw Form::GradeTooLowException("Warning! There are no grades below 150!");
+	}
+	catch (std::exception &e)
+	{
+		std::cout << e.what() << std::endl;
+	}
 }
 
 Form::Form( Form const &src ) : _name(src.getName()), _gradeToExecute(src.getExecGrade()), _gradeToSign(src.getSignGrade())
 {
 	std::cout << "A form got duplicated." << std::endl;
+	std::cout << *this << std::endl;
 	this->_isSigned = false;
 }
 
