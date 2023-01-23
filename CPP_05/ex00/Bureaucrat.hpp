@@ -1,7 +1,10 @@
-#pragma once "BUREAUCRAT_HPP"
+#pragma once
 
 #include <iostream>
 #include <exception>
+
+// #include "GradeTooHighException.hpp"
+// #include "GradeTooLowException.hpp"
 
 class Bureaucrat
 {
@@ -19,6 +22,32 @@ public:
 	void			setGrade( unsigned int grade );
 	void			incrementGrade( void );
 	void			decrementGrade( void );
+
+	class	GradeTooHighException : public std::exception
+	{
+	public:
+		GradeTooHighException( void ) throw();
+		GradeTooHighException( std::string const message ) throw();
+		virtual ~GradeTooHighException( void ) throw();
+
+		virtual const char  *what( void ) const throw();
+
+	private:
+		std::string _message;
+	};
+
+	class	GradeTooLowException  : public std::exception
+	{
+	public:
+		GradeTooLowException( void ) throw();
+		GradeTooLowException( std::string const message ) throw();
+		virtual ~GradeTooLowException() throw();
+
+		virtual const char  *what( void ) const throw();
+
+	private:
+		std::string _message;
+	};
 
 private:
 	const std::string	_name;

@@ -6,7 +6,7 @@
 /*   By: itaouil <itaouil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/20 20:59:39 by itaouil           #+#    #+#             */
-/*   Updated: 2023/01/21 20:53:27 by itaouil          ###   ########.fr       */
+/*   Updated: 2023/01/23 16:19:16 by itaouil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,24 @@ Bureaucrat::Bureaucrat( void )
 	this->setGrade(150);
 }
 
-Bureaucrat::Bureaucrat( unsigned int grade, std::string name ) : _grade(grade), _name(name)
+Bureaucrat::Bureaucrat( unsigned int grade, std::string name ) : _name(name)
 {
 	// throw exception if grade isn't between 1 and 150
-	std::cout << "You just hired a new Bureaucrat. Grade: " << grade << std::endl;
+	std::cout << "You just hired a new Bureaucrat named " << name << ".";
+	try
+	{
+		if (grade < 1)
+			throw Bureaucrat::GradeTooHighException("Grade cannot be higher than 1.");
+		else if (grade > 150)
+			throw Bureaucrat::GradeTooLowException("Grade cannot be lower than 150.");
+		this->_grade = grade;
+		std::cout << " Grade: " << grade << std::endl;
+	}
+	catch(const std::exception& e)
+	{
+		std::cout << std::endl << "Exception caught: " << e.what() << std::endl;
+	}
+	
 }
 
 Bureaucrat::Bureaucrat( Bureaucrat const &src )
@@ -63,21 +77,29 @@ void	Bureaucrat::incrementGrade( void )
 	try
 	{
 		if (this->_grade == 1)
-			throw std::exception();
-		else
-			(this->_grade)--;
+			throw Bureaucrat::GradeTooHighException("Cannot raise grade above #1.");
+		(this->_grade)--;
+		std::cout << "Bureaucrat has been promoted to grade " << this->getGrade() << "." << std::endl;
 	}
-	catch (std::exception)
+	catch(const std::exception &e)
 	{
-		
+		std::cout << "Exception caught: " << e.what() << std::endl;
 	}
-	// throw error if < 1;
 }
 
 void	Bureaucrat::decrementGrade( void )
 {
-	(this->_grade)++;
-	// throw error if > 150;
+	try
+	{
+		if (this->_grade == 150)
+			throw Bureaucrat::GradeTooLowException("Cannot lower grade below #150.");
+		(this->_grade)++;
+		std::cout << "Bureaucrat has been downgraded to grade " << this->getGrade() << std::endl;
+	}
+	catch(const std::exception &e)
+	{
+		std::cout << "Exception caught: " << e.what() << std::endl;
+	}
 }
 
 // ************************************************************************** //
@@ -93,4 +115,5 @@ Bureaucrat	&Bureaucrat::operator=( Bureaucrat const &src )
 std::ostream	&operator<<( std::ostream &o, Bureaucrat const &employee )
 {
 	o << employee.getName() << ", bureaucrat grade " << employee.getGrade() << "." << std::endl;
+	return (o);
 }
