@@ -6,7 +6,7 @@
 /*   By: itaouil <itaouil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/20 20:59:39 by itaouil           #+#    #+#             */
-/*   Updated: 2023/01/20 21:34:26 by itaouil          ###   ########.fr       */
+/*   Updated: 2023/01/21 20:53:27 by itaouil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,17 @@ void	Bureaucrat::setGrade( unsigned int grade )
 
 void	Bureaucrat::incrementGrade( void )
 {
-	(this->_grade)--;
+	try
+	{
+		if (this->_grade == 1)
+			throw std::exception();
+		else
+			(this->_grade)--;
+	}
+	catch (std::exception)
+	{
+		
+	}
 	// throw error if < 1;
 }
 

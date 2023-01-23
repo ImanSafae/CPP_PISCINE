@@ -19,6 +19,6 @@ int main()
 	delete i;
 	std::cout << std::endl;
 
-	// system("leaks Animals");
+	system("leaks Animals");
 	return 0;
 }

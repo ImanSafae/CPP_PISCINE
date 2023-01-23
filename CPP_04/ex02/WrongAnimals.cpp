@@ -4,7 +4,7 @@
 
 WrongAnimal::WrongAnimal( void )
 {
-	std::cout << "An WrongAnimal is born!" << std::endl;
+	std::cout << "A WrongAnimal is born!" << std::endl;
 }
 
 WrongAnimal::WrongAnimal( WrongAnimal const &src )
