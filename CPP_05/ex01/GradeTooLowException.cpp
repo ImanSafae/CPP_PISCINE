@@ -3,14 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   GradeTooLowException.cpp                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: itaouil <itaouil@student.42.fr>            +#+  +:+       +#+        */
+/*   By: itaouil <itaouil@student.42nice.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 01:13:59 by itaouil           #+#    #+#             */
-/*   Updated: 2023/01/23 17:22:07 by itaouil          ###   ########.fr       */
+/*   Updated: 2023/01/26 17:38:41 by itaouil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Form.hpp"
+#include "Bureaucrat.hpp"
 
 // ************************************************************************** //
 //                              Bureaucrat class                              //

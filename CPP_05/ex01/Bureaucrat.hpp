@@ -1,12 +1,10 @@
 #pragma once
+#define BUREAUCRAT_HPP 
+# include <iostream>
+# include <exception>
+# include <stdlib.h>
 
-#include <iostream>
-#include <exception>
-#include <cstdlib>
-#include "Form.hpp"
-
-// #include "GradeTooHighException.hpp"
-// #include "GradeTooLowException.hpp"
+class Form;
 
 class Bureaucrat
 {
@@ -58,4 +56,4 @@ private:
 	unsigned int		_grade;
 };
 
-	std::ostream	&operator<<( std::ostream &o, Bureaucrat const &output );
+std::ostream	&operator<<( std::ostream &o, Bureaucrat const &output );

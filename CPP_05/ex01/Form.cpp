@@ -3,14 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   Form.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: itaouil <itaouil@student.42.fr>            +#+  +:+       +#+        */
+/*   By: itaouil <itaouil@student.42nice.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 16:48:28 by itaouil           #+#    #+#             */
-/*   Updated: 2023/01/23 21:52:10 by itaouil          ###   ########.fr       */
+/*   Updated: 2023/01/26 18:27:22 by itaouil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Form.hpp"
+#include "Bureaucrat.hpp"
 
 // ************************************************************************** //
 //                          Constructor & Destructor                          //
@@ -22,7 +23,7 @@ Form::Form( void ) : _gradeToSign(20), _gradeToExecute(50)
 	std::cout << "New standard form just popped on your desk." << std::endl;
 }
 
-Form::Form( std::string name, unsigned int execGrade, unsigned int signGrade ) : _name(name), _gradeToExecute(execGrade), _gradeToSign(signGrade)
+Form::Form( std::string name, unsigned int execGrade, unsigned int signGrade ) : _name(name), _gradeToSign(signGrade), _gradeToExecute(execGrade)
 {
 	std::cout << "New form just popped on your desk." << std::endl;
 	std::cout << *this << std::endl;
@@ -37,7 +38,7 @@ Form::Form( std::string name, unsigned int execGrade, unsigned int signGrade ) :
 	}
 }
 
-Form::Form( Form const &src ) : _name(src.getName()), _gradeToExecute(src.getExecGrade()), _gradeToSign(src.getSignGrade())
+Form::Form( Form const &src ) : _name(src.getName()), _gradeToSign(src.getSignGrade()), _gradeToExecute(src.getExecGrade())
 {
 	std::cout << "A form got duplicated." << std::endl;
 	std::cout << *this << std::endl;
@@ -56,6 +57,7 @@ Form::~Form( void )
 Form	&Form::operator=( Form const &src )
 {
 	this->_isSigned = src.getSignedStatus();
+	return (*this);
 }
 
 std::ostream	&operator<<( std::ostream &o, Form const &output )
@@ -97,20 +99,21 @@ unsigned int	Form::getSignGrade( void ) const
 	return (this->_gradeToSign);
 }
 
-void			Form::beSigned( Bureaucrat const &employee )
+void			Form::beSigned( Bureaucrat &employee )
 {
-	try
-	{
+	// try
+	// {
 		if (employee.getGrade() > this->_gradeToSign)
 		{
 			std::string s = "Employee's grade is too low to sign this form. Required grade : ";
-			s.append(itoa(this->_gradeToSign));
+			s.append(std::to_string(this->_gradeToSign));
 			throw Bureaucrat::GradeTooLowException(s);
 		}
-		this->_isSigned = true;
-	}
-	catch (std::exception &e)
-	{
-		std::cout << "Exception caught: " << e.what() << std::endl;
-	}
+		else
+			this->_isSigned = true;
+	// }
+	// catch (std::exception &e)
+	// {
+	// 	std::cout << "Exception caught: " << e.what() << std::endl;
+	// }
 }

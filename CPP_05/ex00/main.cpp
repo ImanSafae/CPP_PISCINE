@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: itaouil <itaouil@student.42.fr>            +#+  +:+       +#+        */
+/*   By: itaouil <itaouil@student.42nice.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 00:01:45 by itaouil           #+#    #+#             */
-/*   Updated: 2023/01/23 16:23:38 by itaouil          ###   ########.fr       */
+/*   Updated: 2023/01/26 18:28:42 by itaouil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	main()
 {
-	Bureaucrat	Patrick(150, "Patrick");
+	Bureaucrat	Patrick(50, "Patrick");
 	Patrick.incrementGrade();
 
 	std::cout << std::endl;
@@ -28,6 +28,8 @@ int	main()
 	std::cout << std::endl;
 	Bureaucrat	Sandy(160, "Sandy");
 	std::cout << Sandy << std::endl;
+
+
 
 	std::cout << std::endl;
 }
