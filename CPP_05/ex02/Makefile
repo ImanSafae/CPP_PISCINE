@@ -5,7 +5,8 @@ SRCS = 	main.cpp \
 		Bureaucrat.cpp \
 		Form.cpp \
 		GradeTooHighException.cpp \
-		GradeTooLowException.cpp
+		GradeTooLowException.cpp \
+		ShrubberyCreationForm.cpp
 
 all: $(NAME)
 

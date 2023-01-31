@@ -50,7 +50,7 @@ public:
 		std::string _message;
 	};
 
-private:
+protected:
 	const std::string	_name;
 	bool				_isSigned;
 	const unsigned int	_gradeToSign;
