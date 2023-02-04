@@ -15,6 +15,7 @@
 #include "Form.hpp"
 #include "RobotomyRequestForm.hpp"
 #include "PresidentialPardonForm.hpp"
+#include "Intern.hpp"
 
 int	main()
 {
@@ -23,26 +24,10 @@ int	main()
 	std::cout << std::endl;
 	Bureaucrat	Patrick(150, "Patrick");
 
-	std::cout << std::endl;
-	ShrubberyCreationForm	gardenry("garden");
-	Bob.signForm(gardenry);
-	Bob.executeForm(gardenry); // should work
-	std::cout << std::endl;
+	Intern someRandomIntern;
+	Form* rrf;
+	rrf = someRandomIntern.makeForm("robotomy request", "Bender");
 
-	RobotomyRequestForm	robotomy("that one robot");
-	std::cout << std::endl;
-	Bob.executeForm(robotomy); // should send error cause form is not signed
-	Bob.signForm(robotomy);
-	Bob.executeForm(robotomy); // should work
-	std::cout << std::endl;
-
-
-	PresidentialPardonForm	pardon("Plankton");
-	std::cout << std::endl;
-	Patrick.signForm(pardon); // should send error cause Patrick's grade is too low
-	Bob.signForm(pardon);
-	Bob.executeForm(pardon); // should work
-	std::cout << std::endl;
-
-	std::cout << std::endl;
+	Bob.signForm(*rrf);
+	Bob.executeForm(*rrf);
 }

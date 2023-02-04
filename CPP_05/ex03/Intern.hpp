@@ -17,7 +17,9 @@ public:
 
 	std::string	getStatus( void ) const;
 
-
+	Form	*createShrubberyForm( std::string target );
+	Form	*createPresidentialForm( std::string target );
+	Form	*createRobotomyForm( std::string target );
 
 	Form	*makeForm( std::string name, std::string target );
 private:

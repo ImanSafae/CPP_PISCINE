@@ -46,15 +46,30 @@ std::string	Intern::getStatus( void ) const
 
 void	tolower_str( std::string &str )
 {
-	for (int i = 0; i < str.size(); i++)
+	for (size_t i = 0; i < str.size(); i++)
 	{
 		str[i] = tolower(str[i]);
 	}
 }
 
+Form	*Intern::createShrubberyForm( std::string target )
+{
+	return (new ShrubberyCreationForm(target));
+}
+
+Form	*Intern::createPresidentialForm( std::string target )
+{
+	return (new PresidentialPardonForm(target));
+}
+
+Form	*Intern::createRobotomyForm( std::string target )
+{
+	return (new RobotomyRequestForm(target));
+}
+
 Form	*Intern::makeForm( std::string formtype, std::string target )
 {
-	Form	*form;
+	Form	*newform;
 	tolower_str(formtype);
 
 	std::string	forms[3];
@@ -62,11 +77,10 @@ Form	*Intern::makeForm( std::string formtype, std::string target )
 	forms[1] = "robotomy request";
 	forms[2] = "shrubbery creation";
 
-	void	(*functions[3])( std::string target );
-	functions[0] = &ShrubberyCreationForm::ShrubberyCreationForm;
-	functions[1] = &PresidentialPardonForm::PresidentialPardonForm;
-	functions[2] = &RobotomyRequestForm::RobotomyRequestForm;
-
+	Form*	(Intern::*functionsArray[3])( std::string target );
+	functionsArray[0] = &Intern::createPresidentialForm;
+	functionsArray[1] = &Intern::createRobotomyForm;
+	functionsArray[2] = &Intern::createShrubberyForm;
 
 	int	index;
 	for (int i = 0; i < 3; i++)
@@ -82,7 +96,6 @@ Form	*Intern::makeForm( std::string formtype, std::string target )
 			return (NULL);
 		}
 	}
-
-	form = new (functions[index](target));
-	return (form);
+	newform = (this->*functionsArray[index])(target);
+	return (newform);
 }
