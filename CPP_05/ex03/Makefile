@@ -7,6 +7,7 @@ SRCS = 	main.cpp \
 		FormNotSignedException.cpp \
 		GradeTooHighException.cpp \
 		GradeTooLowException.cpp \
+		Intern.cpp \
 		PresidentialPardonForm.cpp \
 		RobotomyRequestForm.cpp \
 		ShrubberyCreationForm.cpp

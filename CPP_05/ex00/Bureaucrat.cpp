@@ -6,7 +6,7 @@
 /*   By: itaouil <itaouil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/20 20:59:39 by itaouil           #+#    #+#             */
-/*   Updated: 2023/01/23 16:19:16 by itaouil          ###   ########.fr       */
+/*   Updated: 2023/02/07 14:07:41 by itaouil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,11 +28,11 @@ Bureaucrat::Bureaucrat( unsigned int grade, std::string name ) : _name(name)
 	std::cout << "You just hired a new Bureaucrat named " << name << ".";
 	try
 	{
+		this->_grade = grade;
 		if (grade < 1)
 			throw Bureaucrat::GradeTooHighException("Grade cannot be higher than 1.");
 		else if (grade > 150)
 			throw Bureaucrat::GradeTooLowException("Grade cannot be lower than 150.");
-		this->_grade = grade;
 		std::cout << " Grade: " << grade << std::endl;
 	}
 	catch(const std::exception& e)

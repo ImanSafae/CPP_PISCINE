@@ -6,24 +6,34 @@
 /*   By: itaouil <itaouil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 00:01:45 by itaouil           #+#    #+#             */
-/*   Updated: 2023/02/07 15:18:47 by itaouil          ###   ########.fr       */
+/*   Updated: 2023/02/07 15:30:55 by itaouil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 #include "ShrubberyCreationForm.hpp"
 #include "Form.hpp"
+#include "RobotomyRequestForm.hpp"
+#include "PresidentialPardonForm.hpp"
+#include "Intern.hpp"
 
 int	main()
 {
-	std::cout << std::endl;
 	Bureaucrat	Bob(1, "Bob");
-	Bob.incrementGrade(); // shouldn't work because Bob's grade is already the highest
-
 	std::cout << std::endl;
-	ShrubberyCreationForm	gardenry("garden");
 
-	Bob.signForm(gardenry);
-	Bob.executeForm(gardenry); // should create "garden_shrubbery"
+	Bureaucrat	Patrick(150, "Patrick");
+	std::cout << std::endl;
+
+	Intern someRandomIntern;
+	Form* rrf;
+	std::cout << std::endl;
+
+	rrf = someRandomIntern.makeForm("robotomy request", "Bender"); // should create Robotomy Form
+
+	Bob.signForm(*rrf); // should work
+	std::cout << std::endl;
+
+	Bob.executeForm(*rrf); // has 50% chance of successful robotomy on "Bender"
 	std::cout << std::endl;
 }
