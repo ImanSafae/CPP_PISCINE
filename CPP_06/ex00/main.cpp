@@ -105,7 +105,7 @@ void	checkInfOrNan( std::string &arg )
 		std::cout << "double: nan" << std::endl;
 		exit(EXIT_SUCCESS);
 	}
-	else if (!arg.compare("-inf") || arg.compare("-inff"))
+	else if (!arg.compare("-inf") || !arg.compare("-inff"))
 	{
 		std::cout << "char: impossible" << std::endl;
 		std::cout <<"int: -inf" << std::endl;
@@ -113,7 +113,7 @@ void	checkInfOrNan( std::string &arg )
 		std::cout << "double: -inf" << std::endl;
 		exit(EXIT_SUCCESS);
 	}
-	else if (!arg.compare("+inf") || arg.compare("+inff"))
+	else if (!arg.compare("+inf") || !arg.compare("+inff"))
 	{
 		std::cout << "char: impossible" << std::endl;
 		std::cout <<"int: +inf" << std::endl;
