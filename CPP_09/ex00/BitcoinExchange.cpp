@@ -37,7 +37,7 @@ std::map<std::string, double>	createDatamap()
 {
 	std::map<std::string, double>	datamap;
 
-	std::ifstream	ifs("test");
+	std::ifstream	ifs("data.csv");
 	std::string		tmp;
 
 	while (!ifs.eof())
@@ -49,7 +49,7 @@ std::map<std::string, double>	createDatamap()
 		std::string value = keyAndValue[1];
 		delete [] keyAndValue;
 
-		datamap.insert(std::pair<std::string, double>(key, atoi(value.c_str())));
+		datamap.insert(std::pair<std::string, double>(key, atof(value.c_str())));
 	}
 	ifs.close();
 	return (datamap);
@@ -77,7 +77,8 @@ void	printProduct(std::string const &date, double quantity, double price)
 		std::cout << "Error: too large a number." << std::endl;
 		return ;
 	}
-	std::cout << date << " => " << quantity << " = " << price * quantity << std::endl;
+	double	total = price * quantity;
+	std::cout << date << " => " << quantity << " = " << total << std::endl;
 }
 
 bool	dateInWrongFormat(std::string const &date)
@@ -132,7 +133,7 @@ void	bitcoinExchange(std::map<std::string, double> data, std::ifstream &input)
 		}
 		double	price = getPrice(data, key);
 		if (price != -1)
-			printProduct(key, atoi(value.c_str()), price);
+			printProduct(key, atof(value.c_str()), price);
 		else
 			std::cout << "Error: unavailable data for this date." << std::endl;
 	}
