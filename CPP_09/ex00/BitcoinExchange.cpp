@@ -135,6 +135,17 @@ void	bitcoinExchange(std::map<std::string, double> data, std::ifstream &input)
 		if (price != -1)
 			printProduct(key, atof(value.c_str()), price);
 		else
-			std::cout << "Error: unavailable data for this date." << std::endl;
+		{
+			std::map<std::string, double>::iterator it = data.lower_bound(key);
+			if (it == data.begin())
+			{
+				std::cout << "Error: unavailable data for this date." << std::endl;
+				continue ;
+			}
+			it--;
+			price = it->second;
+			printProduct(key, atof(value.c_str()), price);
+			// std::cout << "Error: unavailable data for this date." << std::endl;
+		}
 	}
 }
