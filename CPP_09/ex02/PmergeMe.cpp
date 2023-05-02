@@ -260,36 +260,41 @@ void	insertionVector(std::vector<int> &subVector, int value)
 
 void mergeVector(std::vector<int> &subvector, std::vector<std::pair<int, int> > &mainvector, bool odd)
 {
-	std::vector<int>::const_iterator it = subvector.begin();
-	std::vector<int>::const_iterator ite = subvector.end();
+	std::vector<int>::iterator it = subvector.begin();
+	std::vector<int>::iterator ite = subvector.end();
 
 	while (it != ite)
 	{
 		std::vector<std::pair<int, int> >::iterator it2 = mainvector.begin();
-		std::vector<std::pair<int, int> >::iterator ite2 = mainvector.end();
+		std::vector<std::pair< int, int> >::iterator ite2 = mainvector.end();
 		std::vector<std::pair<int, int> >::iterator last = ite2;
 		last--;
 		std::cout << "value : " << *it << std::endl;
 		while (it2 != ite2)
 		{
+			std::cout << "checking " << *it << std::endl;
 			if ((*it == it2->first) && !(odd == true && it2 == last))
 			{
+				std::cout << "it = " << *it << std::endl;
 				insertionVector(subvector, it2->second);
-				mainvector.erase(it2);
+				it++;
+				// mainvector.erase(it2);
 				break ;
 				
 			}
 			else if ((odd == false && *it == it2->second) || (odd == true && it2 != last && *it == it2->second))
 			{
+				std::cout << "it = " << *it << std::endl;
 				insertionVector(subvector, it2->first);
-				mainvector.erase(it2);
+				it++;
+				// mainvector.erase(it2);
 				break ;
 			}
 			it2++;
 		}
-		std::cout << "incrementing it. current value: " << *it << std::endl;
+		// std::cout << "incrementing it. current value: " << *it << std::endl;
 		it++;
-		std::cout << "incremented it. new value:  " << *it << std::endl;
+		std::cout << "incremented it. new value: " << *it << std::endl;
 	}
 }
 
