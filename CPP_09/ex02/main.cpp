@@ -2,7 +2,7 @@
 
 void printSubList(std::list<int> &subList)
 {
-	std::cout << "Sorted list: ";
+	// std::cout << "Sorted list: ";
 	std::list<int>::iterator it = subList.begin();
 	std::list<int>::iterator ite = subList.end();
 
@@ -16,7 +16,7 @@ void printSubList(std::list<int> &subList)
 
 void	printSubVector(std::vector<int> &subVector)
 {
-	std::cout << "Sorted vector: ";
+	// std::cout << "Sorted vector: ";
 	std::vector<int>::iterator it = subVector.begin();
 	std::vector<int>::iterator ite = subVector.end();
 
@@ -64,6 +64,7 @@ int	main(int argc, char **argv)
 
 	std::vector<std::pair<int, int> >	mainVector;
 	std::vector<int>					subVector;
+	subVector.reserve(argc - 1);
 
 	bool								odd = false;
 
@@ -87,7 +88,7 @@ int	main(int argc, char **argv)
 
 	std::cout << "After: ";
 	printSubList(subList);
-	printSubVector(subVector);
+	// printSubVector(subVector);
 
 	printTime(listTime, vectorTime, argc);
 }
