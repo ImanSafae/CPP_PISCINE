@@ -277,7 +277,6 @@ void	insertionVector(std::vector<int> &subVector, int value)
 // 				insertionVector(subvector, it2->second);
 // 				mainvector.erase(it2);
 // 				break ;
-				
 // 			}
 // 			else if ((odd == false && *it == it2->second) || (odd == true && it2 != last && *it == it2->second))
 // 			{

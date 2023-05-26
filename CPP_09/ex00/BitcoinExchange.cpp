@@ -72,7 +72,7 @@ void	printProduct(std::string const &date, double quantity, double price)
 		std::cout << "Error: not a positive number." << std::endl;
 		return ;
 	}
-	else if (quantity >= INT_MAX)
+	else if (quantity > 1000)
 	{
 		std::cout << "Error: too large a number." << std::endl;
 		return ;
@@ -94,12 +94,13 @@ bool	dateInWrongFormat(std::string const &date)
 		if (date[i] < '0' || date[i] > '9' || !isdigit(date[i]))
 			return (true);
 	}
-
+	int year = atoi(date.substr(0, 4).c_str());
 	int	month = atoi(date.substr(5, 2).c_str());
 	int	day = atoi(date.substr(8, 2).c_str());
+	if (year < 2009)
+		return (true);
 	if (month < 1 || month > 12 || day < 1 || day > 31)
 		return (true);
-
 	if (month == 2 && day > 29)
 		return (true);
 	if (day > 30)
@@ -117,14 +118,18 @@ void	bitcoinExchange(std::map<std::string, double> data, std::ifstream &input)
 	while (!input.eof())
 	{
 		std::getline(input, tmp);
-		std::string	*keyAndValue = split(tmp, '|');
+		std::string	*keyAndValue;
+		if (tmp.find('|') != std::string::npos)
+			keyAndValue = split(tmp, '|');
+		else
+			keyAndValue = split(tmp, ',');
 		removeSpaces(keyAndValue[0]);
 		removeSpaces(keyAndValue[1]);
 		std::string key = keyAndValue[0];
 		std::string value = keyAndValue[1];
 		delete [] keyAndValue;
 
-		if (!key.compare("date") || !value.compare("value"))
+		if (!key.compare("date") || !value.compare("value") || !value.compare(""))
 			continue ;
 		if (dateInWrongFormat(key))
 		{
