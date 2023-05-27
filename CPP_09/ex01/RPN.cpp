@@ -9,6 +9,11 @@ bool	checkCharValidity(char c)
 
 int	calculator(std::stack<std::string> &rpnstack)
 {
+	if (rpnstack.size() < 3)
+	{
+		std::cout << "Error" << std::endl;
+		exit(EXIT_FAILURE);
+	}
 	std::string	a, b, op;
 	int		aInt, bInt, res;
 
@@ -58,6 +63,11 @@ void	rpn(std::string request, std::stack<std::string> &rpnstack)
 			}
 			std::string tmp;
 			tmp += request[i];
+			if (request[i + 1] && !isdigit(request[i + 1]))
+			{
+				std::cout << "Error" << std::endl;
+				exit(EXIT_FAILURE);
+			}
 			if (request[i + 1] && isdigit(request[i + 1]) && request[i] == '-')
 			{
 				tmp += request[i + 1];
