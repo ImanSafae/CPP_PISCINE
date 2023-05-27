@@ -115,7 +115,7 @@ void	parseMainList(std::list<std::pair<int, int> > &mainList, int argc, char **a
 			int	second = atoi(argv[i + 1]);
 			if (first < 0 || second < 0)
 			{
-				std::cout << "Error" << std::endl;
+				std::cout << "Error: must be a positive integer sequence only." << std::endl;
 				exit(EXIT_FAILURE);
 			}
 			mainList.push_back(std::pair<int, int>(first, second));
@@ -125,7 +125,7 @@ void	parseMainList(std::list<std::pair<int, int> > &mainList, int argc, char **a
 			int first = atoi(argv[i]);
 			if (first < 0)
 			{
-				std::cout << "Error" << std::endl;
+				std::cout << "Error: must be a positive integer sequence only." << std::endl;
 				exit(EXIT_FAILURE);
 			}
 			std::pair<int, int>	lastPair;
@@ -170,7 +170,7 @@ void	parseMainVector(std::vector<std::pair<int, int> > &mainVector, int argc, ch
 			int	second = atoi(argv[i + 1]);
 			if (first < 0 || second < 0)
 			{
-				std::cout << "Error" << std::endl;
+				std::cout << "Error: must be a positive integer sequence only." << std::endl;
 				exit(EXIT_FAILURE);
 			}
 			mainVector.push_back(std::pair<int, int>(first, second));
@@ -180,7 +180,7 @@ void	parseMainVector(std::vector<std::pair<int, int> > &mainVector, int argc, ch
 			int first = atoi(argv[i]);
 			if (first < 0)
 			{
-				std::cout << "Error" << std::endl;
+				std::cout << "Error: must be a positive integer sequence only." << std::endl;
 				exit(EXIT_FAILURE);
 			}
 			std::pair<int, int>	lastPair;
@@ -257,41 +257,6 @@ void	insertionVector(std::vector<int> &subVector, int value)
 	}
 	subVector.push_back(value);
 }
-
-// void mergeVector(std::vector<int> &subvector, std::vector<std::pair<int, int> > &mainvector, bool odd)
-// {
-// 	std::vector<int>::const_iterator it = subvector.begin();
-// 	std::vector<int>::const_iterator ite = subvector.end();
-
-// 	while (it != ite)
-// 	{
-// 		std::vector<std::pair<int, int> >::iterator it2 = mainvector.begin();
-// 		std::vector<std::pair<int, int> >::iterator ite2 = mainvector.end();
-// 		std::vector<std::pair<int, int> >::iterator last = ite2;
-// 		last--;
-// 		std::cout << "value : " << *it << std::endl;
-// 		while (it2 != ite2)
-// 		{
-// 			if ((*it == it2->first) && !(odd == true && it2 == last))
-// 			{
-// 				insertionVector(subvector, it2->second);
-// 				mainvector.erase(it2);
-// 				break ;
-// 			}
-// 			else if ((odd == false && *it == it2->second) || (odd == true && it2 != last && *it == it2->second))
-// 			{
-// 				insertionVector(subvector, it2->first);
-// 				mainvector.erase(it2);
-// 				break ;
-// 			}
-// 			it2++;
-// 		}
-// 		std::cout << "incrementing it. current value: " << *it << std::endl;
-// 		it++;
-// 		std::cout << "incremented it. new value:  " << *it << std::endl;
-// 	}
-// }
-
 void	mergeVector(std::vector<int> &subVector, std::vector<std::pair<int, int> > &mainVector, bool odd)
 {
 	std::vector<int>::const_iterator it = subVector.begin();
